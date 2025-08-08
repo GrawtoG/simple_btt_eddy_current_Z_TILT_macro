@@ -33,8 +33,26 @@ Measures 3 points, fits a plane, and moves 3 Z steppers with `FORCE_MOVE`.
    home_position: 70,100
    ```
 3. Ensure `force_move` is enabled in your Klipper configuration to allow the required stepper moves.
-4. Restart your machine:
+4. **The probe section must be named exactly**:
 
+   ```ini
+   [probe_eddy_current btt_eddy]
+   ```
+
+   If your probe section has a different name, **edit `auto_tilt.py`**:
+
+   * Go to the method `cmd_AUTO_TILT_EDDY`.
+   * Find the line:
+
+     ```python
+     self.eddy_probe = self.printer.lookup_object('probe_eddy_current btt_eddy')
+     ```
+   * Replace `'probe_eddy_current btt_eddy'` with your actual probe section name.
+5. Restart Klipper:
+
+   ```bash
+   sudo service klipper restart
+   ```
 
 ---
 
@@ -56,5 +74,6 @@ AUTO_TILT_EDDY
 
 * **Only works with Eddy probe coil** (`probe_eddy_current btt_eddy`).
 * Requires `force_move` enabled.
+* Probe section must be named `[probe_eddy_current btt_eddy]` unless modified in the script.
 * No mesh leveling or advanced checks.
 * Uses raw `FORCE_MOVE` — ensure adjustments are mechanically safe.
