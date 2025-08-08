@@ -33,11 +33,8 @@ Measures 3 points, fits a plane, and moves 3 Z steppers with `FORCE_MOVE`.
    home_position: 70,100
    ```
 3. Ensure `force_move` is enabled in your Klipper configuration to allow the required stepper moves.
-4. Restart Klipper:
+4. Restart your machine:
 
-   ```bash
-   sudo service klipper restart
-   ```
 
 ---
 
