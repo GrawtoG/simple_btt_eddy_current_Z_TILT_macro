@@ -10,7 +10,7 @@ Measures 3 points, fits a plane, and moves 3 Z steppers with `FORCE_MOVE`.
 
 ## Install
 
-1. Copy `eddy_single.py` to:
+1. Copy `auto_tilt.py` to:
 
    ```bash
    ~/klipper/klippy/extras/
